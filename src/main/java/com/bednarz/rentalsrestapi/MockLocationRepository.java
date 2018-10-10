@@ -27,10 +27,11 @@ public class MockLocationRepository {
 
     public Location createAdvertisement(Location location) {
         Map<String, Object> properties1 = ImmutableMap.of(
-                "NAME", location.getTitle(),
-                "CITY", location.getCity(),
-                "PRICE", location.getPrice());
-        Feature feature = new Feature(new Point(new double[]{location.getLongitudey(), location.getLatitudex()}), properties1);
+                "NAME", location.title(),
+                "CITY", location.city(),
+                "PRICE", location.price(),
+                "TYPE", location.type());
+        Feature feature = new Feature(new Point(new double[]{location.longitudey(), location.latitudex()}), properties1);
         features = new ImmutableList.Builder<Feature>().addAll(features).add(feature).build();
         return location;
     }
@@ -39,19 +40,22 @@ public class MockLocationRepository {
         Map<String, Object> properties1 = ImmutableMap.of(
                 "NAME", "Apartment z dwoma pokojami",
                 "CITY", "KRAKOW",
-                "PRICE", 100);
+                "PRICE", 100,
+                "TYPE", Location.AdvertisementType.FLAT);
         Feature feature1 = new Feature(new Point(new double[]{19.938503, 52.655769}), properties1);
 
         Map<String, Object> properties2 = ImmutableMap.of(
                 "NAME", "Mieszkanie 100m2 na pokoje wynajem",
                 "CITY", "WARSZAWA",
-                "PRICE", 200);
+                "PRICE", 200,
+                "TYPE", Location.AdvertisementType.ROOM);
         Feature feature2 = new Feature(new Point(new double[]{19.538503, 51.655769}), properties2);
 
         Map<String, Object> properties3 = ImmutableMap.of(
                 "NAME", "Atrakcyjny pokój jednoosobowy ul.Miechowity",
                 "CITY", "GDANSK",
-                "PRICE", 300);
+                "PRICE", 300,
+                "TYPE", Location.AdvertisementType.FLAT);
         Feature feature3 = new Feature(new Point(new double[]{19.738503, 52.455769}), properties3);
 
         features = ImmutableList.of(feature1, feature2, feature3);

@@ -10,9 +10,9 @@ buildscript {
 	}
 }
 
-
 plugins {
-    id 'io.franzbecker.gradle-lombok' version '1.14'
+	id 'net.ltgt.apt' version '0.18' // this is for IDEA to enable Autovalue processing
+	id 'net.ltgt.apt-idea' version '0.18'
 }
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -26,14 +26,13 @@ sourceCompatibility = 1.8
 repositories {
 	mavenCentral()
 }
-lombok { // optional: values below are the defaults
-    version = "1.16.20"
-    sha256 = "c5178b18caaa1a15e17b99ba5e4023d2de2ebc18b58cde0f5a04ca4b31c10e6d"
-}
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.wololo:jts2geojson:0.12.0')
     compile('com.google.guava:guava:26.0-jre')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile('com.fasterxml.jackson.core:jackson-databind:2.9.7')
+	compile('com.google.auto.value:auto-value-annotations:1.6.2')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	annotationProcessor ('com.google.auto.value:auto-value:1.6.2')
 }
