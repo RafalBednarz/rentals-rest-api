@@ -10,7 +10,6 @@ public class LocationController {
     @Autowired
     private MockLocationRepository locationRepository;
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping("locations")
     public GeoJSON getAllLocations() {
         return locationRepository.getAllLocations();
