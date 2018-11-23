@@ -10,6 +10,7 @@ import org.wololo.jts2geojson.GeoJSONWriter;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Repository
 public class MockLocationRepository {
@@ -23,6 +24,12 @@ public class MockLocationRepository {
     public GeoJSON getAllLocations() {
         GeoJSONWriter writer = new GeoJSONWriter();
         return writer.write(features);
+    }
+
+    public GeoJSON getLocationsByPrice(String price) {
+        GeoJSONWriter writer = new GeoJSONWriter();
+        List featuresByPrice = features.stream().filter(f -> Integer.parseInt(f.getProperties().get("PRICE").toString()) < Integer.parseInt(price)).collect(Collectors.toList());
+        return writer.write(featuresByPrice);
     }
 
     public Location createAdvertisement(Location location) {

@@ -21,6 +21,10 @@ public abstract class Location {
     @JsonProperty("price")
     abstract int price();
 
+    public enum AdvertisementType {
+        FLAT, ROOM
+    }
+
     public static Location create(double latitudex, double longitudey, AdvertisementType type, String title, String city, int price) {
         return builder()
                 .latitudex(latitudex)
@@ -34,10 +38,6 @@ public abstract class Location {
 
     public static Builder builder() {
         return new AutoValue_Location.Builder();
-    }
-
-    public enum AdvertisementType {
-        FLAT, ROOM
     }
 
     @AutoValue.Builder
