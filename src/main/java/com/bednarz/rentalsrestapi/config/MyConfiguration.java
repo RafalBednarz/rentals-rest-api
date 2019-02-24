@@ -1,4 +1,4 @@
-package com.bednarz.rentalsrestapi;
+package com.bednarz.rentalsrestapi.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

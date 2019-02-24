@@ -15,7 +15,6 @@ plugins {
 	id 'net.ltgt.apt-idea' version '0.18'
 }
 apply plugin: 'java'
-apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
@@ -33,6 +32,8 @@ dependencies {
     compile('com.google.guava:guava:26.0-jre')
 	compile('com.fasterxml.jackson.core:jackson-databind:2.9.7')
 	compile('com.google.auto.value:auto-value-annotations:1.6.2')
+	compile('io.springfox:springfox-swagger2:2.9.2')
+	compile('io.springfox:springfox-swagger-ui:2.9.2')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	annotationProcessor ('com.google.auto.value:auto-value:1.6.2')
 }

@@ -1,5 +1,6 @@
-package com.bednarz.rentalsrestapi;
+package com.bednarz.rentalsrestapi.repository;
 
+import com.bednarz.rentalsrestapi.Location;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import org.springframework.stereotype.Repository;

@@ -1,5 +1,6 @@
 package com.bednarz.rentalsrestapi;
 
+import com.bednarz.rentalsrestapi.repository.MockLocationRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,6 @@ public class LocationController {
         }
         return locationRepository.getAllLocations();
     }
-
 
     @PostMapping("/locations")
     public Location createLocation(@RequestBody Location location) {
